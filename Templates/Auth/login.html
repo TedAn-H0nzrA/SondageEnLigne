@@ -12,16 +12,17 @@
     <div class="container">
         <div class="form-container">
             <h1 class="title">Connexion</h1>
-            <form id="loginForm">
-                <div class="input-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Entrez votre email" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" placeholder="Entrez votre mot de passe" required>
-                </div>
-                <div class="error-message" id="loginError"></div>
+            <form method="POST" id="loginForm">
+                {% csrf_token %}
+                {{ form.as_p }}
+                
+                {% if form.non_field_errors %}
+                    <div class="error-message">
+                        {% for error in form.non_field_errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
                 <button type="submit" class="btn">Se connecter</button>
             </form>
             <div class="redirect">

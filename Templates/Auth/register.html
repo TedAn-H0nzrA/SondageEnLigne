@@ -12,33 +12,10 @@
     <div class="container">
         <div class="form-container">
             <h1 class="title">Inscription</h1>
-            <form id="registerForm">
-                <div class="input-group">
-                    <label for="lastName">Nom</label>
-                    <input type="text" id="lastName" placeholder="Entrez votre nom" required>
-                </div>
-                <div class="input-group">
-                    <label for="firstName">Prénom</label>
-                    <input type="text" id="firstName" placeholder="Entrez votre prénom" required>
-                </div>
-                <div class="input-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Entrez votre email" required>
-                </div>
-                <div class="input-group">
-                    <label for="username">Nom d'utilisateur</label>
-                    <input type="text" id="username" placeholder="Choisissez un nom d'utilisateur" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" placeholder="Créez un mot de passe" required>
-                </div>
-                <div class="input-group">
-                    <label for="confirmPassword">Confirmation du mot de passe</label>
-                    <input type="password" id="confirmPassword" placeholder="Confirmez votre mot de passe" required>
-                </div>
-                <div class="error-message" id="registerError"></div>
-                <button type="submit" class="btn">S'inscrire</button>
+            <form method="POST" id="registerForm">
+                {% csrf_token %}
+                {{ form.as_p }}
+               <button type="submit" class="btn">S'inscrire</button>
             </form>
             <div class="redirect">
                 <p>Déjà inscrit ?</p>

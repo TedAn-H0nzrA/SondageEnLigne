@@ -5,7 +5,7 @@ from .models import Utilisateurs
 
 
 # Vue pour l'inscription
-def register(request):
+def register_view(request):
     if request.method == "POST":
         form = RegisterForm(request.POST)
         if form.is_valid():
@@ -18,7 +18,7 @@ def register(request):
 
 
 
-def login(request):
+def login_view(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():

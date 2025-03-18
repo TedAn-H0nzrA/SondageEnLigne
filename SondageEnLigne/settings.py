@@ -106,6 +106,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = 'Utilisateurs.Utilisateurs'
 
+# Gestion des urls par défaut
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'accueil'
+LOGOUT_REDIRECT_URL = 'welcome'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
