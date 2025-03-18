@@ -14,7 +14,7 @@ def register(request):
     else:
         form = RegisterForm()
 
-    return render(request, 'Utilisateurs/register.html', {"form": form})
+    return render(request, 'Auth/register.html', {"form": form})
 
 
 
@@ -38,7 +38,7 @@ def login(request):
     else:
         form = LoginForm()
             
-    return render(request, "Utilisateurs/login.html", {"form" : form})
+    return render(request, "Auth/login.html", {"form" : form})
 
 
 # Vue pour la deconnexion

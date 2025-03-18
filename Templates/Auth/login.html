@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="{% static 'CSS/login_register.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1 class="title">Connexion</h1>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Entrez votre email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" placeholder="Entrez votre mot de passe" required>
+                </div>
+                <div class="error-message" id="loginError"></div>
+                <button type="submit" class="btn">Se connecter</button>
+            </form>
+            <div class="redirect">
+                <p>Pas encore de compte ?</p>
+                <a href="{% url 'register' %}" class="link">S'inscrire</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
