@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # Mes applications
     'Core',
     'Utilisateurs',
+    'Enquetes',
 ]
 
 MIDDLEWARE = [
