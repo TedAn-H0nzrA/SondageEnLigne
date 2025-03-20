@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'CSS/enquete_form.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<div class="container">
+    <h2 class="title">{{ title }}</h2>
+    <form method="post">
+        {% csrf_token %}
+
+        {% if form.errors %}
+            <div class="error-box">
+                <strong>Veuillez corriger les erreurs :</strong>
+                <ul>
+                    {% for field, errors in form.errors.items %}
+                        {% for error in errors %}
+                            <li>{{ field|capfirst }} : {{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        {% for field in form %}
+            <div class="input-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="btn">Soumettre</button>
+    </form>
+</div>
+{% endblock %}

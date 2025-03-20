@@ -1,0 +1,31 @@
+.container {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.title {
+    font-size: 28px;
+    color: red;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px;
+    background: red;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: darkred;
+}

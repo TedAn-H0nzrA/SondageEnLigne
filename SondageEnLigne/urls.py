@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Core.urls')), # url pour la page d'accueil avant et après connexion
     path('Utilisateurs/', include('Utilisateurs.urls')), # url pour l'authentification et inscription utilisateur
+    path('Enquetes/', include('Enquetes.urls')), # url pour les Enquêtes
 ]

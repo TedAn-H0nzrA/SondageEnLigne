@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'CSS/enquete_detail.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<div class="container">
+    <h2 class="title">{{ enquete.name }}</h2>
+    <p>{{ enquete.description }}</p>
+    <p>Status: <strong>{{ enquete.get_statut_display }}</strong></p>
+
+    <a href="{% url 'enquete_update' enquete.pk %}" class="btn">Modifier</a>
+    <a href="{% url 'enquete_delete' enquete.pk %}" class="btn">Supprimer</a>
+    <a href="{% url 'question_create' enquete.pk %}" class="btn">Ajouter une question</a>
+</div>
+{% endblock %}

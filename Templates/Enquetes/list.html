@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'CSS/enquete_list.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<div class="container">
+    <h2 class="title">Liste des Enquêtes</h2>
+    <a href="{% url 'enquete_create' %}" class="btn">Créer une Enquête</a>
+
+    <div class="enquete-list">
+        {% for enquete in enquetes %}
+            <div class="enquete-card">
+                <h3>{{ enquete.name }}</h3>
+                <p>{{ enquete.description }}</p>
+                <p>Status: <strong>{{ enquete.get_statut_display }}</strong></p>
+                <a href="{% url 'enquete_detail' enquete.pk %}" class="btn">Voir</a>
+            </div>
+        {% empty %}
+            <p>Aucune enquête disponible.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

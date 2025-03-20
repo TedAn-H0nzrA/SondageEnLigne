@@ -1,0 +1,55 @@
+.container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.title {
+    font-size: 24px;
+    color: red;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background: #333;
+    color: white;
+    border: none;
+}
+
+.error-box {
+    background: rgba(255, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: red;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background: darkred;
+}
