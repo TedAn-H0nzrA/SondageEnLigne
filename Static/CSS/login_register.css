@@ -1,50 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
 body {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background-color: #000;
+    color: white;
     padding: 20px;
 }
 
 .container {
     width: 100%;
     max-width: 500px;
-    background-color: #fff;
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8);
     overflow: hidden;
-}
-
-.form-container {
     padding: 40px;
+    text-align: center;
 }
 
 .title {
     font-size: 28px;
     font-weight: 600;
-    text-align: center;
-    color: #333;
+    color: #e50914;
     margin-bottom: 30px;
 }
 
 .input-group {
     margin-bottom: 20px;
+    text-align: left;
 }
 
 .input-group label {
     display: block;
     font-size: 14px;
-    color: #555;
+    color: white;
     margin-bottom: 5px;
     font-weight: 500;
 }
@@ -52,22 +42,23 @@ body {
 .input-group input {
     width: 100%;
     padding: 12px 15px;
-    border: 1px solid #ddd;
+    border: 1px solid #333;
     border-radius: 6px;
     outline: none;
     font-size: 15px;
-    color: #333;
+    background: black;
+    color: white;
     transition: border-color 0.3s;
 }
 
 .input-group input:focus {
-    border-color: #667eea;
+    border-color: #e50914;
 }
 
 .btn {
     width: 100%;
     padding: 14px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: #e50914;
     color: white;
     border: none;
     border-radius: 6px;
@@ -80,7 +71,7 @@ body {
 
 .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    background: #b20710;
 }
 
 .redirect {
@@ -89,32 +80,24 @@ body {
 }
 
 .redirect p {
-    color: #555;
+    color: white;
     font-size: 14px;
     margin-bottom: 5px;
 }
 
 .link {
-    color: #667eea;
+    color: #e50914;
     font-weight: 600;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .link:hover {
-    color: #764ba2;
-}
-
-.error-message {
-    color: #e74c3c;
-    font-size: 14px;
-    margin-top: 5px;
-    text-align: center;
-    min-height: 20px;
+    color: #b20710;
 }
 
 @media (max-width: 500px) {
-    .form-container {
+    .container {
         padding: 25px;
     }
     
