@@ -7,9 +7,16 @@ class Enquete(models.Model):
     code = models.CharField(max_length = 10)
     name = models.CharField(max_length = 100)
     description = models.CharField(max_length = 255)
-    statut = models.CharField(max_length = 10)
+
+    STATUS_CHOICES = [
+        ('actif', 'Actif'),
+        ('inactif', 'Inactif'),
+        ('archive', 'Archivé'),
+    ]
+
+    statut = models.CharField(max_length = 10,choices = STATUS_CHOICES, default = 'actif')
     startDate = models.DateField(default = timezone.now, editable = False)
-    endDate = models.DateField(default = timezone.now, editable = True)
+    endDate = models.DateField(null = True, blank = True)
     userID = models.ForeignKey(Utilisateurs, on_delete = models.CASCADE)
     token = models.CharField(max_length = 30)
 
