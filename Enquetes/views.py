@@ -45,8 +45,8 @@ def enquete_update(request, enquete_id):
 
 # Suppression d'une enquête
 @login_required
-def enquete_delete(request, enquete_id):
-    enquete = get_object_or_404(Enquete, id=enquete_id)
+def enquete_delete(request, pk):
+    enquete = get_object_or_404(Enquete, id = pk)
     if request.method == 'POST':
         enquete.delete()
         return redirect('enquete_list')

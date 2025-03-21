@@ -1,1 +1,17 @@
-Bienvenue sur accueil
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+    <div class="accueil-container">
+        <h1>Bienvenue sur MonSondage</h1>
+        <p>Bonjour, {{ user.username }} !</p>
+        <p>Explorez nos sondages et donnez votre avis.</p>
+        <a href="{% url 'enquete_list' %}" class="btn">Voir les sondages</a>
+    </div>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'CSS/accueil.css' %}">
+{% endblock %}

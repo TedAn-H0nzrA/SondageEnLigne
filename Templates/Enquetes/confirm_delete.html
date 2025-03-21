@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Confirmation de suppression{% endblock %}
+
+{% block content %}
+    <div class="confirm-container">
+        <h1>Supprimer l'enquête</h1>
+        <p>Êtes-vous sûr de vouloir supprimer l'enquête "{{ enquete.titre }}" ?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Confirmer</button>
+            <a href="{% url 'enquete_delete' enquete.pk %}" class="btn btn-cancel">Annuler</a>
+        </form>
+    </div>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'CSS/confirm_delete.css' %}">
+{% endblock %}

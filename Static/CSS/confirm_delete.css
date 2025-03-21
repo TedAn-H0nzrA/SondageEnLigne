@@ -1,0 +1,44 @@
+.confirm-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.confirm-container h1 {
+    font-size: 32px;
+    color: red;
+}
+
+.confirm-container p {
+    font-size: 20px;
+    margin: 15px 0;
+}
+
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn-danger {
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-danger:hover {
+    background-color: darkred;
+}
+
+.btn-cancel {
+    background-color: gray;
+    color: white;
+}
+
+.btn-cancel:hover {
+    background-color: darkgray;
+}
