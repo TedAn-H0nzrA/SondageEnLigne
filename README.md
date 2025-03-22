@@ -35,19 +35,19 @@ Le projet est divisé en trois applications principales :
 
 ### Étapes d'installation
 
-1. Cloner le dépôt :
-
-   ```sh
-   git clone https://github.com/TedAn-H0nzrA/SondageEnLigne.git
-   cd SondageEnLigne
-   ```
-
-2. Créer et activer un environnement virtuel :
+1. Créer et activer un environnement virtuel :
 
    ```sh
    python -m venv environment
    source environment/bin/activate  # Sur macOS/Linux
    environment\Scripts\activate     # Sur Windows
+   ```
+
+2. Cloner le dépôt :
+
+   ```sh
+   git clone https://github.com/TedAn-H0nzrA/SondageEnLigne.git
+   cd SondageEnLigne
    ```
 
 3. Installer les dépendances :
