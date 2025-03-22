@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'Core',
     'Utilisateurs',
     'Enquetes',
+    'Responses',
 ]
 
 MIDDLEWARE = [

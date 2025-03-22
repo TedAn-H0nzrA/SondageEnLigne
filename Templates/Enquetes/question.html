@@ -1,1 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Questions{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Créer une nouvelle question pour l'enquête</h2>
     
+    <form method="post" class="mt-3">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="id_question" class="form-label">Question :</label>
+            {{ form.question }}
+        </div>
+
+        <div class="mb-3">
+            <label for="id_description" class="form-label">Description :</label>
+            {{ form.description }}
+        </div>
+
+        <div class="mb-3">
+            <label for="id_responseType" class="form-label">Type de réponse :</label>
+            {{ form.responseType }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Ajouter la question</button>
+    </form>
+
+    <a href="{% url 'enquete_detail' enquete.id %}" class="btn btn-secondary mt-3">Retour à l'enquête</a>
+</div>
+{% endblock %}
