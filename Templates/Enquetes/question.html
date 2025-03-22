@@ -25,6 +25,6 @@
         <button type="submit" class="btn btn-primary">Ajouter la question</button>
     </form>
 
-    <a href="{% url 'enquete_detail' enquete.id %}" class="btn btn-secondary mt-3">Retour à l'enquête</a>
+    {% comment %} <a href="{% url 'enquete_detail' enquete.pk %}" class="btn btn-secondary mt-3">Retour à l'enquête</a> {% endcomment %}
 </div>
 {% endblock %}
