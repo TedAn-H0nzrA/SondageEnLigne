@@ -10,11 +10,30 @@
 {% block content %}
 <div class="container">
     <h2 class="title">{{ enquete.name }}</h2>
-    <p>{{ enquete.description }}</p>
-    <p>Status: <strong>{{ enquete.get_statut_display }}</strong></p>
+    <p class="description">{{ enquete.description }}</p>
+    <p class="status">Status: <strong>{{ enquete.get_status_display }}</strong></p>
 
-    <a href="{% url 'enquete_update' enquete.pk %}" class="btn">Modifier</a>
-    <a href="{% url 'enquete_delete' enquete.pk %}" class="btn">Supprimer</a>
-    <a href="{% url 'question_create' enquete.pk %}" class="btn">Ajouter une question</a>
+    <div class="buttons">
+        <a href="{% url 'enquete_update' enquete.pk %}" class="btn edit-btn">Modifier</a>
+        <a href="{% url 'enquete_delete' enquete.pk %}" class="btn delete-btn">Supprimer</a>
+        <a href="{% url 'question_create' enquete.pk %}" class="btn add-btn">Ajouter une question</a>
+    </div>
+    
+    <div class="questions-section">
+        <h3 class="questions-title">Questions</h3>
+        {% if questions %}
+            <ul class="questions-list">
+            {% for question in questions %}
+                <li class="question-item">
+                    <h4 class="question-text">{{ question.question }}</h4>
+                    <p class="question-description">{{ question.description }}</p>
+                    <p class="question-type">Type: {{ question.get_responseType_display }}</p>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-questions">Aucune question n'a été ajoutée à cette enquête.</p>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}

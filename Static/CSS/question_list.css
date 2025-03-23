@@ -1,0 +1,41 @@
+.questions-list {
+    list-style: none;
+    padding: 0;
+}
+
+.question-item {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid #d32f2f;
+    position: relative;
+}
+
+.question-item.answered {
+    border-left-color: #4CAF50;
+    background-color: #f0f7f0;
+}
+
+.status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.status.completed {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.completion-message {
+    text-align: center;
+    background-color: #e8f5e9;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 30px;
+    border: 1px solid #4CAF50;
+}

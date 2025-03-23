@@ -1,12 +1,22 @@
 {% extends 'base.html' %}
 
-{% block title %}Submit response{% endblock %}
+{% block title %}Répondre à la question{% endblock %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'CSS/submit_response.css' %}">
+{% endblock %}
 
 {% block content %}
-  <h2>Répondre à la question : {{ question.text }}</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Envoyer</button>
-  </form>
+  <div class="container">
+    <h2>Répondre à la question :</h2>
+    <div class="question-box">
+      <h3>{{ question.question }}</h3>
+      <p>{{ question.description }}</p>
+    </div>
+    
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn">Envoyer</button>
+    </form>
+  </div>
 {% endblock %}

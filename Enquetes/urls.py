@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import enquete_list, enquete_detail, enquete_create, enquete_update, enquete_delete, enquete_response_create, question_create
+from .views import enquete_list, enquete_detail, enquete_create, enquete_update, enquete_delete, enquete_response_create, question_create, enquete_response_questions
 
 urlpatterns = [
     # Enquêtes
@@ -13,5 +13,6 @@ urlpatterns = [
     path('<int:pk>/respond/', enquete_response_create, name='enquete_respond'),
 
     # Questions
-    path('<int:enquete_id>/add-question/', question_create, name='question_create'),
+    path('<int:pk>/add-question/', question_create, name='question_create'),
+    path('respond/<int:enquete_response_id>/', enquete_response_questions, name='enquete_response_questions'),
 ]

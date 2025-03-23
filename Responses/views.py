@@ -7,7 +7,7 @@ def submit_response(request, enquete_response_id, question_id):
     question = get_object_or_404(Question, id=question_id)
     
     if request.method == 'POST':
-        form = ResponseForm(request.POST)
+        form = ResponseForm(question, request.POST)
         if form.is_valid():
             response = form.save(commit=False)
             response.enqueteResponsesID = enquete_response
@@ -15,7 +15,7 @@ def submit_response(request, enquete_response_id, question_id):
             response.save()
             return redirect('success_page')  
     else:
-        form = ResponseForm()
+        form = ResponseForm(question)
 
     return render(request, 'Responses/submit_response.html', {'form': form, 'question': question})
 
