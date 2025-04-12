@@ -17,7 +17,7 @@
             <div class="enquete-card">
                 <h3>{{ enquete.name }}</h3>
                 <p>{{ enquete.description }}</p>
-                <p>Status: <strong>{{ enquete.get_statut_display }}</strong></p>
+                <p>Status: <strong>{{ enquete.get_status_display }}</strong></p>
                 <a href="{% url 'enquete_detail' enquete.pk %}" class="btn">Voir</a>
             </div>
         {% empty %}
