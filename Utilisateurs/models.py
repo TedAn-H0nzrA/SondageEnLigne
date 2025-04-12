@@ -10,8 +10,10 @@ class Utilisateurs(AbstractUser):
         return self.username
 
     def get_role(self):
-        mapping = self.roleusermapping_set.first()
-        return mapping.user_roleID.roleName if mapping else None
+        role_mapping = RoleUserMapping.objects.filter(userID=self).first()
+        if role_mapping:
+            return role_mapping.user_roleID.roleName
+        return None
 
 
 class User_role(models.Model):

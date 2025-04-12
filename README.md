@@ -1,81 +1,109 @@
-# Sondage en Ligne - Django
 
-## Description
+# 🗳️ Sondage en Ligne - Django
 
-Ce projet est une application web de sondage en ligne permettant aux administrateurs de créer des enquêteurs, qui à leur tour créent et gèrent des enquêtes. Les participants peuvent répondre aux enquêtes via un lien reçu par email.
+## 📌 Description
 
-## Fonctionnalités
+Cette application web de sondage permet aux **administrateurs** de créer des **enquêteurs**, qui peuvent ensuite créer et gérer des **enquêtes**.  
+Les **participants** accèdent aux sondages via un lien reçu par email pour y répondre.
 
-- Gestion des utilisateurs (administrateurs, enquêteurs)
-- Création et gestion des enquêtes et des questions
-- Envoi de liens aux participants pour répondre aux sondages
-- Stockage et analyse des réponses
+---
 
-## Technologies utilisées
+## ✨ Fonctionnalités
+
+- 🔐 Gestion des rôles utilisateurs : Administrateurs & Enquêteurs
+- 📝 Création et gestion des enquêtes et de leurs questions
+- 📩 Envoi de liens aux participants par email
+- 📊 Collecte et analyse des réponses
+
+---
+
+## 🛠️ Technologies
 
 - **Langage** : Python
-- **Framework Web** : Django
+- **Framework** : Django
 - **Base de données** : SQLite
-- **Frontend** : Django Templates
+- **Frontend** : Django Templates (HTML/CSS)
 
-## Structure du projet
+---
 
-Le projet est divisé en trois applications principales :
+## 🧭 Structure du projet
 
-1. **Utilisateurs** : Gestion des administrateurs et enquêteurs.
-2. **Enquêtes** : Gestion des enquêtes et des questions.
-3. **Réponses** : Stockage et gestion des réponses des participants.
+Le projet est organisé autour de trois applications Django principales :
 
-## Installation
+| **Application**   | **Rôle**                                      |
+|--------------------|-----------------------------------------------|
+| `utilisateurs`     | Gère les comptes Administrateurs et Enquêteurs |
+| `enquetes`         | Crée les enquêtes et leurs questions          |
+| `reponses`         | Stocke et traite les réponses des participants |
 
-### Prérequis
+---
+
+## 🚀 Installation
+
+### ✅ Prérequis
 
 - Python 3.8+
-- pip et virtualenv
+- `pip` et `virtualenv`
 
-### Étapes d'installation
+### 📦 Étapes
 
-1. Créer et activer un environnement virtuel :
+1. **Créer un environnement virtuel** :
 
-   ```sh
-   python -m venv environment
-   source environment/bin/activate  # Sur macOS/Linux
-   environment\Scripts\activate     # Sur Windows
+   ```bash
+   python -m venv env
+   source env/bin/activate      # macOS/Linux
+   env\Scripts\activate         # Windows
    ```
 
-2. Cloner le dépôt :
+2. **Cloner le dépôt** :
 
-   ```sh
+   ```bash
    git clone https://github.com/TedAn-H0nzrA/SondageEnLigne.git
    cd SondageEnLigne
    ```
 
-3. Installer les dépendances :
+3. **Installer les dépendances** :
 
-   ```sh
+   ```bash
    pip install -r requirements.txt
    ```
 
-4. Appliquer les migrations :
+4. **Appliquer les migrations** :
 
-   ```sh
+   ```bash
    python manage.py migrate
    ```
 
-5. Lancer le serveur de développement :
+5. **Charger les rôles initiaux** :
 
-   ```sh
+   ```bash
+   python manage.py loaddata initial_roles.json
+   ```
+
+6. **Lancer le serveur de développement** :
+
+   ```bash
    python manage.py runserver
    ```
 
-6. Accéder à l'application :
-   - Interface d'administration : `http://127.0.0.1:8000/admin/`
-   - Interface utilisateur (selon implémentation) : `http://127.0.0.1:8000/`
+7. **Accéder à l'application** :
+   - Admin : [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
+   - Interface utilisateur : [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
-## Contribution
+---
 
-1. Forker le projet
-2. Créer une branche (`feature-nouvelle-fonctionnalite`)
-3. Committer vos changements (`git commit -m 'Ajout d'une nouvelle fonctionnalité'`)
-4. Pousser la branche (`git push origin feature-nouvelle-fonctionnalite`)
-5. Ouvrir une Pull Request
+## 👤 Création d'un administrateur (via terminal)
+
+Avec username explicite :
+
+```bash
+python manage.py create_admin yout@gmail.com yourpassword --username yourusername
+```
+
+Sans username (généré automatiquement depuis l'email) :
+
+```bash
+python manage.py create_admin your@gmail.com yourpassword
+```
+
+---

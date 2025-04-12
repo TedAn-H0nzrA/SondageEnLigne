@@ -1,0 +1,18 @@
+[
+    {
+        "model": "Utilisateurs.User_role",
+        "pk": 1,
+        "fields": {
+            "roleName": "admin",
+            "description": "Administrateur du système"
+        }
+    },
+    {
+        "model": "Utilisateurs.User_role",
+        "pk": 2,
+        "fields": {
+            "roleName": "enqueteur",
+            "description": "Créateur et gestionnaire d'enquêtes"
+        }
+    }
+]

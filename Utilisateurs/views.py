@@ -10,17 +10,23 @@ def register_view(request):
     if request.method == "POST":
         form = RegisterForm(request.POST)
         if form.is_valid():
-            role = User_role.objects.get(roleName = "enqueteur")
-            user = form.save(commit=False)
-            user.save()
-            RoleUserMapping.objects.create(userID=user, user_roleID=role)
-            login(request, user)
-
-            if role.roleName == 'admin':
-                return redirect('admin_dashboard')
-            elif role.roleName == 'enqueteur':
+            try:
+                # Récupérer le rôle enquêteur
+                role = User_role.objects.get(roleName="enqueteur")
+                
+                # Créer l'utilisateur
+                user = form.save(commit=False)
+                user.save()
+                
+                # Assigner le rôle
+                RoleUserMapping.objects.create(userID=user, user_roleID=role)
+                
+                # Connecter l'utilisateur
+                login(request, user)
                 return redirect('enqueteur_dashboard')
-            return redirect("accueil")
+                
+            except User_role.DoesNotExist:
+                form.add_error(None, "Erreur système: rôle non trouvé")
     else:
         form = RegisterForm()
     return render(request, 'Auth/register.html', {"form": form})
@@ -39,13 +45,19 @@ def login_view(request):
             if user and user.check_password(password):
                 login(request, user)
                 user_role = user.get_role()
+                
+                # Ajout de debug pour vérifier le rôle
+                print(f"User role: {user_role}")  # Debug
+                
                 if user_role == 'admin':
-                    return redirect("admin_dashboard")
+                    print("Redirecting to admin dashboard")  # Debug
+                    return redirect('admin_dashboard')
                 elif user_role == 'enqueteur':
-                    return redirect("enqueteur_dashboard")
+                    print("Redirecting to enqueteur dashboard")  # Debug
+                    return redirect('enqueteur_dashboard')
                 else:
-                    # Redirection par défaut
-                    return redirect("accueil_enqueteur")
+                    print(f"Unknown role: {user_role}")  # Debug
+                    return redirect('login')
             else:
                 form.add_error(None, "Identifiant ou mot de passe incorrect.")
     else:

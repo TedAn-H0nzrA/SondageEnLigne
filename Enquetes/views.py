@@ -2,19 +2,35 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Enquete, EnqueteResponse, Question
 from .forms import EnqueteForm, EnqueteResponseForm, QuestionForm
+from Utilisateurs.utils.role_required import role_required
 
 # Liste des enquêtes
 @login_required
 def enquete_list(request):
-    enquetes = Enquete.objects.all()
+    # Si l'utilisateur est admin, il voit tout
+    if request.user.get_role() == 'admin':
+        enquetes = Enquete.objects.all()
+    else:
+        # Sinon il ne voit que ses enquêtes
+        enquetes = Enquete.objects.filter(userID=request.user)
     return render(request, 'Enquetes/list.html', {'enquetes': enquetes})
 
 # Détails d'une enquête
 @login_required
+@role_required(['admin', 'enqueteur'])
 def enquete_detail(request, pk):
-    enquete = get_object_or_404(Enquete, id = pk)
+    # Si l'utilisateur est admin, il peut voir toutes les enquêtes
+    if request.user.get_role() == 'admin':
+        enquete = get_object_or_404(Enquete, id=pk)
+    else:
+        # Sinon il ne peut voir que ses enquêtes
+        enquete = get_object_or_404(Enquete, id=pk, userID=request.user)
+        
     questions = Question.objects.filter(enqueteID=enquete)
-    return render(request, 'Enquetes/detail.html', {'enquete': enquete, 'questions': questions})
+    return render(request, 'Enquetes/detail.html', {
+        'enquete': enquete, 
+        'questions': questions
+    })
 
 # Création d'une enquête
 @login_required
