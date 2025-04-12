@@ -1,0 +1,77 @@
+/* enqueteur_dashboard.css - Styles specific to the enquêteur dashboard */
+
+/* Dashboard heading */
+h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Welcome message */
+p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+p strong {
+    color: var(--accent-color);
+}
+
+/* Dashboard menu */
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+ul li {
+    margin-bottom: 1rem;
+}
+
+ul li a {
+    display: block;
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+ul li a:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Disabled or placeholder link (for 'Analyser les réponses') */
+ul li a[href="#"] {
+    background-color: var(--border-color);
+    color: var(--text-color);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+ul li a[href="#"]:hover {
+    background-color: var(--border-color);
+    transform: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    ul li a {
+        padding: 0.7rem 1rem;
+    }
+}

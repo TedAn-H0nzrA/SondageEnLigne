@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Dashboard Enquêteur{% endblock %}
+
+{% block content %}
+<h1>Bienvenue sur votre dashboard</h1>
+
+<p>Bonjour <strong>{{ user.first_name }}</strong>, vous êtes connecté en tant qu'<strong>enquêteur</strong>.</p>
+
+<ul>
+    <li><a href="{% url 'enquete_create' %}">Créer un nouveau sondage</a></li>
+    <li><a href="{% url 'enquete_list' %}">Voir mes sondages</a></li>
+    <li><a href="#">Analyser les réponses</a></li>
+</ul>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'CSS/enqueteur_dashboard.css' %}">
+{% endblock %}

@@ -14,8 +14,35 @@
             <h1 class="title">Inscription</h1>
             <form method="POST" id="registerForm">
                 {% csrf_token %}
-                {{ form.as_p }}
-               <button type="submit" class="btn">S'inscrire</button>
+                <div class="form-field">
+                    <label for="{{ form.first_name.id_for_label }}">Firstname</label>
+                    {{ form.first_name }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ form.last_name.id_for_label }}">Lastname</label>
+                    {{ form.last_name }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ form.email.id_for_label }}">Email</label>
+                    {{ form.email }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ form.username.id_for_label }}">Username</label>
+                    {{ form.username }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ form.password1.id_for_label }}">Password</label>
+                    {{ form.password1 }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ form.password2.id_for_label }}">Confirm password</label>
+                    {{ form.password2 }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ form.role.id_for_label }}">Rôle</label>
+                    {{ form.role }}
+                </div>
+                <button type="submit" class="btn">S'inscrire</button>
             </form>
             <div class="redirect">
                 <p>Déjà inscrit ?</p>
