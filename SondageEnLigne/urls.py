@@ -19,8 +19,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('Core.urls')), # url pour la page d'accueil avant et après connexion
-    path('Utilisateurs/', include('Utilisateurs.urls')), # url pour l'authentification et inscription utilisateur
-    path('Enquetes/', include('Enquetes.urls')), # url pour les Enquêtes
-    path('Responses/', include('Responses.urls')), # url pour les Responses
+    path('', include('Core.urls')),
+    path('user/', include('Utilisateurs.urls')),
+    path('enquetes/', include('Enquetes.urls')),
+    path('responses/', include('Responses.urls', namespace='responses')),
 ]

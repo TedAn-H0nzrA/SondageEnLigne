@@ -1,7 +1,10 @@
 from django.urls import path
-from .views import submit_response, success_page
+from . import views
+
+app_name = 'responses'
 
 urlpatterns = [
-    path('submit/<int:enquete_response_id>/<int:question_id>/', submit_response, name='submit_response'),
-    path('success/', success_page, name = 'success_page'),
+    path('participer/<int:enquete_id>/', views.participer_sondage, name='participer_sondage'),
+    path('submit/<int:enquete_response_id>/<int:question_id>/', views.submit_response, name='submit_response'),
+    path('success/', views.success_page, name='success_page'),
 ]

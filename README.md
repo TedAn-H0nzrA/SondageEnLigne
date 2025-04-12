@@ -87,7 +87,7 @@ Le projet est organisé autour de trois applications Django principales :
    ```
 
 7. **Accéder à l'application** :
-   - Admin : [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
+   <!-- - Admin : [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/) -->
    - Interface utilisateur : [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
 ---
@@ -97,7 +97,7 @@ Le projet est organisé autour de trois applications Django principales :
 Avec username explicite :
 
 ```bash
-python manage.py create_admin yout@gmail.com yourpassword --username yourusername
+python manage.py create_admin your@gmail.com yourpassword --username yourusername
 ```
 
 Sans username (généré automatiquement depuis l'email) :
@@ -107,3 +107,16 @@ python manage.py create_admin your@gmail.com yourpassword
 ```
 
 ---
+
+## Suppression des fichier inutile
+
+```bash
+# Supprimer les fichiers __pycache__
+find . -type d -name "__pycache__" -exec rm -r {} +
+
+# Supprimer les migrations (sauf __init__.py)
+find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+
+# Supprimer la base de données
+rm db.sqlite3
+```

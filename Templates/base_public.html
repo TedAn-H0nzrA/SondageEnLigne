@@ -1,4 +1,4 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,13 +9,12 @@
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-
     <header>
-        <div class="logo">MonSondage {{ user.username }} </div>
+        <div class="logo">MonSondage</div>
         <nav>
             <ul>
                 <li><a href="{% url 'accueil' %}">Accueil</a></li>
-                <li><a href="{% url 'logout' %}">Déconnexion</a></li>
+                <li><a href="{% url 'welcome' %}">Espace Enquêteur</a></li>
             </ul>
         </nav>
     </header>
@@ -27,6 +26,5 @@
     <footer>
         <p>&copy; Projet Sondage en ligne. Mr Minonja</p>
     </footer>
-
 </body>
 </html>
