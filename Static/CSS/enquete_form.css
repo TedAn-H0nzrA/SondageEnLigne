@@ -1,55 +1,85 @@
+/* Enquete_form.css - Style pour le formulaire d'enquête */
 .container {
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+  
+  .title {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
     text-align: center;
-}
-
-.title {
-    font-size: 24px;
-    color: red;
-    margin-bottom: 15px;
-}
-
-.input-group {
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-.input-group label {
+  }
+  
+  form {
+    margin-top: 1.5rem;
+  }
+  
+  .error-box {
+    background-color: #fde8e8;
+    color: var(--danger-color);
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--danger-color);
+  }
+  
+  .error-box ul {
+    margin-top: 0.5rem;
+    margin-left: 1.5rem;
+  }
+  
+  .input-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  label {
     display: block;
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.input-group input,
-.input-group select,
-.input-group textarea {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+  }
+  
+  input, textarea, select {
     width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    background: #333;
-    color: white;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+  
+  input:focus, 
+  textarea:focus, 
+  select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(111, 175, 228, 0.2);
+  }
+  
+  .btn {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 0.8rem 2rem;
     border: none;
-}
-
-.error-box {
-    background: rgba(255, 0, 0, 0.8);
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
-
-.btn {
-    width: 100%;
-    padding: 12px;
-    background: red;
-    color: white;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-}
-
-.btn:hover {
-    background: darkred;
-}
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    display: block;
+    width: fit-content;
+    margin: 1.5rem auto 0;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: var(--secondary-color);
+  }

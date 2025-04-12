@@ -1,30 +1,88 @@
-.question-box {
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-left: 4px solid #d32f2f;
-}
-
+/* Submit_response.css - Style pour soumettre une réponse */
 .container {
     max-width: 800px;
-    margin: auto;
-    padding: 20px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 15px;
-    background: #d32f2f;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s ease;
-    border: none;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+  
+  h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+  
+  .question-box {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--accent-color);
+  }
+  
+  .question-box h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+  }
+  
+  form {
+    margin-top: 2rem;
+  }
+  
+  form p {
+    margin-bottom: 1.5rem;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+  }
+  
+  form input[type="text"],
+  form textarea,
+  form select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  form textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+  
+  form input[type="radio"],
+  form input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+  
+  form select {
+    background-color: #fff;
     cursor: pointer;
-}
-
-.btn:hover {
-    background: #b71c1c;
-}
+  }
+  
+  form input:focus,
+  form textarea:focus,
+  form select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(111, 175, 228, 0.2);
+  }
+  
+  .btn {
+    background-color: var(--accent-color);
+    margin-top: 1rem;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .btn:hover {
+    background-color: var(--secondary-color);
+  }

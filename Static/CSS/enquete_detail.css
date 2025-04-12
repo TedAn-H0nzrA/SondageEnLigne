@@ -1,137 +1,104 @@
+/* Enquete_detail.css - Style pour la page de détail d'enquête */
 .container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
     background-color: #fff;
-}
-
-.title {
-    font-size: 28px;
-    color: #d32f2f;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #d32f2f;
-    padding-bottom: 10px;
-}
-
-.description {
-    font-size: 18px;
-    margin-bottom: 15px;
-    color: #333;
-    line-height: 1.4;
-}
-
-.status {
-    font-size: 16px;
-    margin-bottom: 20px;
-    padding: 5px;
-    color: #555;
-    background-color: #f8f8f8;
-    display: inline-block;
-    border-radius: 4px;
-}
-
-.buttons {
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+  
+  .title {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+  }
+  
+  .description {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  .status {
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+  
+  .buttons {
     display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 15px;
-    background: #d32f2f;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s ease;
-    min-width: 120px;
-}
-
-.edit-btn {
-    background: #1976d2;
-}
-
-.delete-btn {
-    background: #d32f2f;
-}
-
-.add-btn {
-    background: #388e3c;
-}
-
-.btn:hover {
-    background: #b71c1c;
-    transform: translateY(-2px);
-}
-
-.edit-btn:hover {
-    background: #0d47a1;
-}
-
-.delete-btn:hover {
-    background: #b71c1c;
-}
-
-.add-btn:hover {
-    background: #1b5e20;
-}
-
-.questions-section {
-    margin-top: 30px;
-    text-align: left;
-    border-top: 1px solid #eee;
-    padding-top: 20px;
-}
-
-.questions-title {
-    font-size: 22px;
-    color: #333;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.questions-list {
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+  }
+  
+  .edit-btn {
+    background-color: var(--secondary-color);
+  }
+  
+  .delete-btn {
+    background-color: var(--danger-color);
+  }
+  
+  .add-btn {
+    background-color: var(--success-color);
+  }
+  
+  .questions-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+  }
+  
+  .questions-title {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .questions-list {
     list-style: none;
     padding: 0;
-}
-
-.question-item {
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-left: 4px solid #d32f2f;
-}
-
-.question-text {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.question-description {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-.question-type {
-    font-size: 14px;
+  }
+  
+  .question-item {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--secondary-color);
+  }
+  
+  .question-text {
+    color: var(--text-color);
+    margin-bottom: 0.6rem;
+    font-size: 1.1rem;
+  }
+  
+  .question-description {
+    color: #666;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+  }
+  
+  .question-type {
     color: #777;
+    font-size: 0.9rem;
     font-style: italic;
-}
-
-.no-questions {
+  }
+  
+  .no-questions {
+    color: #888;
+    font-style: italic;
     text-align: center;
-    color: #777;
-    font-style: italic;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-}
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+  }

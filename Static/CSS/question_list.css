@@ -1,41 +1,85 @@
-.questions-list {
+/* Question_list.css - Style pour la liste des questions */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+  
+  h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+  }
+  
+  h3 {
+    color: var(--secondary-color);
+    margin: 1.5rem 0 1rem;
+    font-size: 1.3rem;
+  }
+  
+  .questions-list {
     list-style: none;
+    margin: 2rem 0;
     padding: 0;
-}
-
-.question-item {
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-left: 4px solid #d32f2f;
-    position: relative;
-}
-
-.question-item.answered {
-    border-left-color: #4CAF50;
-    background-color: #f0f7f0;
-}
-
-.status {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    padding: 5px 10px;
-    border-radius: 3px;
-    font-weight: bold;
-}
-
-.status.completed {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.completion-message {
+  }
+  
+  .question-item {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--secondary-color);
+    transition: all 0.3s ease;
+  }
+  
+  .question-item.answered {
+    border-left-color: var(--success-color);
+    background-color: #f0f9f4;
+  }
+  
+  .question-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-color);
+  }
+  
+  .question-item p {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+  
+  .status {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  .status.completed {
+    background-color: #e6f7ef;
+    color: var(--success-color);
+  }
+  
+  .completion-message {
     text-align: center;
-    background-color: #e8f5e9;
-    padding: 20px;
-    border-radius: 5px;
-    margin-top: 30px;
-    border: 1px solid #4CAF50;
-}
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #e6f7ef;
+    border-radius: 6px;
+    color: var(--success-color);
+  }
+  
+  .completion-message h3 {
+    color: var(--success-color);
+    margin-bottom: 0.8rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }

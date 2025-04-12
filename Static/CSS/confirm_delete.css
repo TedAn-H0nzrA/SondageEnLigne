@@ -1,44 +1,50 @@
+/* Confirm_delete.css - Style pour la page de confirmation de suppression */
 .confirm-container {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
     text-align: center;
-    margin-top: 50px;
-}
-
-.confirm-container h1 {
-    font-size: 32px;
-    color: red;
-}
-
-.confirm-container p {
-    font-size: 20px;
-    margin: 15px 0;
-}
-
-.btn {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background 0.3s;
-}
-
-.btn-danger {
-    background-color: red;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-danger:hover {
-    background-color: darkred;
-}
-
-.btn-cancel {
-    background-color: gray;
-    color: white;
-}
-
-.btn-cancel:hover {
-    background-color: darkgray;
-}
+  }
+  
+  h1 {
+    color: var(--danger-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+  }
+  
+  form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .btn-danger {
+    background-color: var(--danger-color);
+  }
+  
+  .btn-danger:hover {
+    background-color: #d62828;
+  }
+  
+  .btn-cancel {
+    background-color: #6c757d;
+  }
+  
+  .btn-cancel:hover {
+    background-color: #5a6268;
+  }

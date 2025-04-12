@@ -1,122 +1,107 @@
+/* Login_register.css - Style pour les pages de connexion et d'inscription */
 body {
     display: flex;
-    align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    background-color: #000;
-    color: white;
-    padding: 20px;
-}
-
-.container {
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f5f7fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .container {
     width: 100%;
-    max-width: 500px;
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8);
-    overflow: hidden;
-    padding: 40px;
+    max-width: 420px;
+    padding: 1rem;
+  }
+  
+  .form-container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
     text-align: center;
-}
-
-.title {
-    font-size: 28px;
-    font-weight: 600;
-    color: #e50914;
-    margin-bottom: 30px;
-}
-
-.input-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.input-group label {
+    color: #3a506b;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+  
+  form {
+    margin-bottom: 2rem;
+  }
+  
+  form p {
+    margin-bottom: 1.2rem;
+  }
+  
+  form label {
     display: block;
-    font-size: 14px;
-    color: white;
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
+    color: #333;
     font-weight: 500;
-}
-
-.input-group input {
+  }
+  
+  form input {
     width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #333;
-    border-radius: 6px;
+    padding: 0.8rem;
+    border: 1px solid #d1d9e6;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  form input:focus {
     outline: none;
-    font-size: 15px;
-    background: black;
-    color: white;
-    transition: border-color 0.3s;
-}
-
-.input-group input:focus {
-    border-color: #e50914;
-}
-
-.btn {
+    border-color: #6fafe4;
+    box-shadow: 0 0 0 2px rgba(111, 175, 228, 0.2);
+  }
+  
+  .error-message {
+    background-color: #fde8e8;
+    color: #e63946;
+    padding: 0.8rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    border-left: 4px solid #e63946;
+  }
+  
+  .btn {
+    display: block;
     width: 100%;
-    padding: 14px;
-    background: #e50914;
-    color: white;
+    background-color: #5b7c99;
+    color: #fff;
+    padding: 0.8rem;
     border: none;
-    border-radius: 6px;
-    font-size: 16px;
+    border-radius: 4px;
+    font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
-    margin-top: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    background: #b20710;
-}
-
-.redirect {
-    margin-top: 25px;
     text-align: center;
-}
-
-.redirect p {
-    color: white;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.link {
-    color: #e50914;
-    font-weight: 600;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #3a506b;
+  }
+  
+  .redirect {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  
+  .redirect p {
+    margin-bottom: 0.5rem;
+    color: #666;
+  }
+  
+  .link {
+    color: #6fafe4;
     text-decoration: none;
-    transition: color 0.3s;
-}
-
-.link:hover {
-    color: #b20710;
-}
-
-@media (max-width: 500px) {
-    .container {
-        padding: 25px;
-    }
-    
-    .title {
-        font-size: 22px;
-        margin-bottom: 20px;
-    }
-    
-    .input-group {
-        margin-bottom: 15px;
-    }
-    
-    .input-group input {
-        padding: 10px 12px;
-        font-size: 14px;
-    }
-    
-    .btn {
-        padding: 12px;
-        font-size: 14px;
-    }
-}
+    font-weight: 500;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
