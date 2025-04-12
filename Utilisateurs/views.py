@@ -45,7 +45,7 @@ def login_view(request):
                     return redirect("enqueteur_dashboard")
                 else:
                     # Redirection par défaut
-                    return redirect("accueil")
+                    return redirect("accueil_enqueteur")
             else:
                 form.add_error(None, "Identifiant ou mot de passe incorrect.")
     else:
