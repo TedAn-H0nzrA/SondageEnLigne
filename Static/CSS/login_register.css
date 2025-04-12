@@ -3,15 +3,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     background-color: #f5f7fa;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2rem 0;
   }
   
   .container {
     width: 100%;
-    max-width: 420px;
+    max-width: 480px;
     padding: 1rem;
   }
   
@@ -35,6 +36,9 @@ body {
   
   form p {
     margin-bottom: 1.2rem;
+    position: relative;
+    display: block;
+    clear: both;
   }
   
   form label {
@@ -50,6 +54,35 @@ body {
     border: 1px solid #d1d9e6;
     border-radius: 4px;
     font-size: 1rem;
+    display: block;
+  }
+  
+  /* Assurer que les inputs dans les widgets Django sont correctement affichés */
+  form .helptext {
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.3rem;
+  }
+  
+  form ul.errorlist {
+    list-style: none;
+    color: #e63946;
+    padding: 0;
+    margin: 0.3rem 0;
+    font-size: 0.8rem;
+  }
+  
+  /* Corrections spécifiques pour les champs username, email, etc. */
+  form p:nth-child(n) {
+    margin-top: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Augmenter l'espace pour les inputs avec textes d'aide */
+  form p:has(.helptext) {
+    margin-bottom: 2rem;
   }
   
   form input:focus {
@@ -80,6 +113,7 @@ body {
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s;
+    margin-top: 1.5rem;
   }
   
   .btn:hover {
@@ -104,4 +138,16 @@ body {
   
   .link:hover {
     text-decoration: underline;
+  }
+  
+  /* Pour assurer que tous les champs sont accessibles */
+  @media screen and (max-height: 700px) {
+    body {
+      align-items: flex-start;
+      padding-top: 1rem;
+    }
+    
+    .container {
+      margin-bottom: 2rem;
+    }
   }
