@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Espace Utilisateur{% endblock %}
+
+{% block content %}
+<div class="home-user-container">
+    <h1>Espace Utilisateur</h1>
+    <p>Bienvenue dans votre espace personnel</p>
+
+    <div class="options-grid">
+        <div class="option-card">
+            <i class="fas fa-sign-in-alt"></i>
+            <h2>Connexion</h2>
+            <p>Déjà inscrit ? Connectez-vous à votre compte</p>
+            <a href="{% url 'login' %}" class="btn-primary">Se connecter</a>
+        </div>
+
+        <div class="option-card">
+            <i class="fas fa-user-plus"></i>
+            <h2>Inscription</h2>
+            <p>Nouveau ? Créez votre compte</p>
+            <a href="{% url 'register' %}" class="btn-secondary">S'inscrire</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'CSS/home_user.css' %}">
+{% endblock %}

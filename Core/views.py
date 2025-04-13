@@ -5,10 +5,14 @@ from Enquetes.models import Enquete
 def welcome(request):
     return render(request, 'Core/welcome.html')
 
-@login_required
 def accueil(request):
-    # Récupérer uniquement les sondages actifs
+    return render(request, 'Core/accueil.html')
+
+def home_participant(request):
     sondages_actifs = Enquete.objects.filter(status='actif')
-    return render(request, 'Core/accueil.html', {
+    return render(request, 'Core/home_participant.html', {
         'sondages': sondages_actifs
     })
+
+def home_user(request):
+    return render(request, 'Core/home_user.html')

@@ -1,0 +1,27 @@
+{% extends 'base_public.html' %}
+{% load static %}
+
+{% block title %}Espace Participant - Sondages{% endblock %}
+
+{% block content %}
+<div class="accueil-container">
+    <h1>Espace Participant</h1>
+    <p>Participez à nos sondages et partagez votre opinion!</p>
+
+    <div class="sondages-list">
+        {% for sondage in sondages %}
+            <div class="sondage-card">
+                <h3>{{ sondage.name }}</h3>
+                <p>{{ sondage.description }}</p>
+                <a href="{% url 'responses:participer_sondage' sondage.pk %}" class="btn">Participer</a>
+            </div>
+        {% empty %}
+            <p>Aucun sondage disponible pour le moment.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'CSS/home_participant.css' %}">
+{% endblock %}

@@ -1,23 +1,27 @@
-{% extends 'base_public.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Accueil - Sondages{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block content %}
-<div class="accueil-container">
+<div class="main-home-container">
     <h1>Bienvenue sur notre plateforme de sondages</h1>
-    <p>Participez à nos sondages et partagez votre opinion!</p>
+    <p>Choisissez votre espace</p>
 
-    <div class="sondages-list">
-        {% for sondage in sondages %}
-            <div class="sondage-card">
-                <h3>{{ sondage.name }}</h3>
-                <p>{{ sondage.description }}</p>
-                <a href="{% url 'responses:participer_sondage' sondage.pk %}" class="btn">Participer</a>
-            </div>
-        {% empty %}
-            <p>Aucun sondage disponible pour le moment.</p>
-        {% endfor %}
+    <div class="spaces-grid">
+        <div class="space-card">
+            <i class="fas fa-user-tie"></i>
+            <h2>Espace Utilisateur</h2>
+            <p>Connectez-vous ou inscrivez-vous pour créer et gérer vos sondages</p>
+            <a href="{% url 'home_user' %}" class="btn-primary">Accéder</a>
+        </div>
+
+        <div class="space-card">
+            <i class="fas fa-users"></i>
+            <h2>Espace Participant</h2>
+            <p>Participez aux sondages disponibles</p>
+            <a href="{% url 'home_participant' %}" class="btn-secondary">Accéder</a>
+        </div>
     </div>
 </div>
 {% endblock %}
