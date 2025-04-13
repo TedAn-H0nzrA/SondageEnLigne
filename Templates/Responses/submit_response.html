@@ -1,30 +1,52 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% load static %}
-{% load crispy_forms_tags %}
-
-{% block extra_js %}
-  <script src="{% static 'JS/submit_response.js' %}"></script>
-{% endblock %}
-
 {% block title %}Répondre à la question{% endblock %}
+
 {% block extra_css %}
   <link rel="stylesheet" href="{% static 'CSS/submit_response.css' %}">
 {% endblock %}
 
 {% block content %}
   <div class="container">
-    <h2>Répondre à la question :</h2>
-    <div class="question-box">
-      <h3>{{ question.question }}</h3>
-      <p>{{ question.description }}</p>
+    <div class="question-container">
+      <h2>Question du sondage</h2>
+      <div class="question-box">
+        <h3>{{ question.question }}</h3>
+        {% if question.description %}
+          <p class="description">{{ question.description }}</p>
+        {% endif %}
+      </div>
+
+      <form method="post" class="response-form">
+        {% csrf_token %}
+        <div class="form-group">
+          {% if question.responseType == 'choix_multiple' %}
+            <h4>Choisissez votre réponse :</h4>
+            <div class="options-list">
+              {% for choice in form.responseOptionID.field.queryset %}
+                <div class="option-item">
+                  <input type="radio" name="responseOptionID" 
+                         value="{{ choice.id }}" 
+                         id="choice_{{ choice.id }}"
+                         {% if form.responseOptionID.value == choice.id %}checked{% endif %}>
+                  <label for="choice_{{ choice.id }}">{{ choice.option_text }}</label>
+                </div>
+              {% endfor %}
+            </div>
+          {% else %}
+            <div class="text-response">
+              <label for="{{ form.responseText.id_for_label }}">Votre réponse :</label>
+              <textarea name="responseText" 
+                        id="{{ form.responseText.id_for_label }}" 
+                        rows="4">{{ form.responseText.value|default:'' }}</textarea>
+            </div>
+          {% endif %}
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="submit-btn">Soumettre la réponse</button>
+        </div>
+      </form>
     </div>
-    
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit" class="btn">Envoyer</button>
-    </form>
   </div>
 {% endblock %}

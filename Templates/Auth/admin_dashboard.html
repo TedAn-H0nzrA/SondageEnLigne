@@ -1,15 +1,111 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Admin Dashboard{% endblock %}
+{% block title %}Dashboard Administrateur{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'CSS/admin_dashboard.css' %}">
+{% endblock %}
 
 {% block content %}
-<h1>Bienvenue sur le dashboard Administrateur</h1>
+<div class="admin-layout">
+    <!-- Sidebar Navigation -->
+    <nav class="admin-sidebar">
+        <div class="admin-profile">
+            <div class="admin-avatar">
+                <i class="fas fa-user-shield"></i>
+            </div>
+            <div class="admin-info">
+                <h3>{{ request.user.username }}</h3>
+                <span class="role-badge">Administrateur</span>
+            </div>
+        </div>
 
-<p>Vous êtes connecté en tant qu'<strong>administrateur</strong>.</p>
+        <div class="admin-menu">
+            <a href="{% url 'admin_dashboard:index' %}" class="menu-item active">
+                <i class="fas fa-tachometer-alt"></i>
+                Tableau de bord
+            </a>
+            <a href="{% url 'admin_dashboard:users' %}" class="menu-item">
+                <i class="fas fa-users"></i>
+                Gestion Utilisateurs
+            </a>
+            <a href="{% url 'admin_dashboard:stats' %}" class="menu-item">
+                <i class="fas fa-chart-bar"></i>
+                Statistiques
+            </a>
+            <a href="{% url 'admin_dashboard:data' %}" class="menu-item">
+                <i class="fas fa-database"></i>
+                Données
+            </a>
+            <a href="{% url 'logout' %}" class="menu-item logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Déconnexion
+            </a>
+        </div>
+    </nav>
 
-<ul>
-    <li>Gérer les utilisateurs</li>
-    <li>Voir les statistiques globales</li>
-    <li>Accès complet aux données</li>
-</ul>
+    <!-- Main Content -->
+    <main class="admin-content">
+        <div class="admin-header">
+            <h1>Tableau de bord administrateur</h1>
+            <div class="quick-actions">
+                <button class="action-btn" onclick="location.href='{% url 'admin_dashboard:add_user' %}'">
+                    <i class="fas fa-user-plus"></i> Nouvel utilisateur
+                </button>
+            </div>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon users">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Utilisateurs</h3>
+                    <p class="stat-number">{{ total_users }}</p>
+                    <a href="{% url 'admin_dashboard:users' %}" class="stat-link">Voir détails →</a>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon surveys">
+                    <i class="fas fa-poll"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Sondages</h3>
+                    <p class="stat-number">{{ total_surveys }}</p>
+                    <a href="{% url 'admin_dashboard:data' %}?type=surveys" class="stat-link">Voir détails →</a>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon responses">
+                    <i class="fas fa-reply-all"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Réponses</h3>
+                    <p class="stat-number">{{ total_responses }}</p>
+                    <a href="{% url 'admin_dashboard:data' %}?type=responses" class="stat-link">Voir détails →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="recent-activity">
+            <h2>Activités récentes</h2>
+            <div class="activity-list">
+                {% for activity in recent_activities %}
+                <div class="activity-item">
+                    <span class="activity-time">{{ activity.created_at|date:"H:i" }}</span>
+                    <span class="activity-text">{{ activity.description }}</span>
+                </div>
+                {% empty %}
+                <p class="no-activity">Aucune activité récente</p>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+</div>
 {% endblock %}

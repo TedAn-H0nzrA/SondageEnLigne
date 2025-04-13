@@ -18,9 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('django-admin/', admin.site.urls),  # Changed to avoid conflict
     path('', include('Core.urls')),
     path('user/', include('Utilisateurs.urls')),
     path('enquetes/', include('Enquetes.urls')),
     path('responses/', include('Responses.urls', namespace='responses')),
+    path('admin/', include('Administration.urls', namespace='admin_dashboard')),
 ]

@@ -2,7 +2,7 @@
 .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: var(--shadow);
@@ -15,17 +15,15 @@
   }
   
   .question-box {
-    background-color: #f8f9fa;
-    border-radius: 6px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    border-left: 4px solid var(--accent-color);
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
   }
   
   .question-box h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.8rem;
-    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 10px;
   }
   
   form {
@@ -85,4 +83,93 @@
   
   .btn:hover {
     background-color: var(--secondary-color);
+  }
+
+  .question-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+
+  .description {
+    color: #666;
+    font-style: italic;
+  }
+
+  .response-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .options-list {
+    margin: 20px 0;
+  }
+
+  .options-list ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .options-list li {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .options-list li:hover {
+    background-color: #f8f9fa;
+  }
+
+  .option-item {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .option-item:hover {
+    background-color: #f9f9f9;
+  }
+
+  .text-response textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+
+  .submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .submit-btn:hover {
+    background-color: #45a049;
+  }
+
+  .form-actions {
+    margin-top: 20px;
+    text-align: right;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
   }

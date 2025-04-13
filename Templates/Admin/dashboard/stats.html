@@ -1,0 +1,51 @@
+{% extends 'Admin/base_admin.html' %}
+{% load static %}
+
+{% block title %}Statistiques globales{% endblock %}
+
+{% block content %}
+<div class="stats-dashboard">
+    <h1>Statistiques globales</h1>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>Utilisateurs</h3>
+            <div class="stat-number">{{ stats.total_users }}</div>
+            <div class="stat-details">
+                <div>Enquêteurs: {{ stats.enqueteurs_count }}</div>
+                <div>Actifs: {{ stats.active_users }}</div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <h3>Sondages</h3>
+            <div class="stat-number">{{ stats.total_surveys }}</div>
+            <div class="stat-details">
+                <div>Actifs: {{ stats.active_surveys }}</div>
+                <div>Complétés: {{ stats.completed_surveys }}</div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <h3>Réponses</h3>
+            <div class="stat-number">{{ stats.total_responses }}</div>
+            <div class="stat-details">
+                <div>Aujourd'hui: {{ stats.today_responses }}</div>
+                <div>Cette semaine: {{ stats.week_responses }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="charts-section">
+        <div class="chart">
+            <h3>Participation mensuelle</h3>
+            <canvas id="monthlyChart"></canvas>
+        </div>
+        
+        <div class="chart">
+            <h3>Types de questions utilisées</h3>
+            <canvas id="questionTypesChart"></canvas>
+        </div>
+    </div>
+</div>
+{% endblock %}

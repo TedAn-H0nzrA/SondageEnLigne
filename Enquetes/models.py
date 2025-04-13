@@ -32,12 +32,18 @@ class EnqueteResponse(models.Model):
         ('complete', 'Completé'),
         ('annule', 'Annuler'),
     ]
-    email = models.EmailField(unique = True)
-    token = models.CharField(max_length = 30)
-    enqueteID = models.ForeignKey(Enquete, on_delete = models.CASCADE)
-    status = models.CharField(max_length = 10, choices = STATUS_CHOICES, default = 'en_attente')
-    responseDatetime = models.DateTimeField(default = timezone.now, editable = False)
-    validationDatetime = models.DateTimeField(null = True, blank = True)
+    email = models.EmailField(null=True, blank=True)  # Rendre l'email optionnel initialement
+    token = models.CharField(max_length=30, unique=True)
+    enqueteID = models.ForeignKey(Enquete, on_delete=models.CASCADE)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='en_attente')
+    responseDatetime = models.DateTimeField(default=timezone.now, editable=False)
+    validationDatetime = models.DateTimeField(null=True, blank=True)
+    is_email_confirmed = models.BooleanField(default=False)  # Nouveau champ
+
+    def confirm_email(self):
+        self.is_email_confirmed = True
+        self.save()
+
 
     def __str__(self):
         return f"Réponse de {self.email} pour {self.enqueteID.name}"
@@ -58,3 +64,17 @@ class Question(models.Model):
 
     def __str__(self):
         return f"Question: {self.question[:50]} ..."
+
+# Add this new model for multiple choice options
+class ResponseSelection(models.Model):
+    questionID = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='choices')
+    option_text = models.CharField(max_length=255)
+    order = models.IntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+        verbose_name = "Option de réponse"
+        verbose_name_plural = "Options de réponse"
+
+    def __str__(self):
+        return f"{self.option_text} (Question: {self.questionID.question[:30]}...)"

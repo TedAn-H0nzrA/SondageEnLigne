@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'CSS/admin.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="admin-layout">
+        <nav class="admin-sidebar">
+            <div class="admin-logo">
+                <h2>Administration</h2>
+            </div>
+            <ul class="admin-menu">
+                <li><a href="{% url 'admin_dashboard:index' %}" class="{% if active == 'dashboard' %}active{% endif %}">Tableau de bord</a></li>
+                <li><a href="{% url 'admin_dashboard:users' %}" class="{% if active == 'users' %}active{% endif %}">Gérer les utilisateurs</a></li>
+                <li><a href="{% url 'admin_dashboard:stats' %}" class="{% if active == 'stats' %}active{% endif %}">Statistiques globales</a></li>
+                <li><a href="{% url 'admin_dashboard:data' %}" class="{% if active == 'data' %}active{% endif %}">Données complètes</a></li>
+            </ul>
+        </nav>
+        <main class="admin-content">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</body>
+</html>

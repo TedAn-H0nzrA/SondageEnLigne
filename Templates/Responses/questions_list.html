@@ -1,0 +1,31 @@
+{% extends 'base_public.html' %}
+{% load static %}
+
+{% block title %}Questions de l'enquête{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'CSS/question_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ enquete.name }}</h2>
+    <p>{{ enquete.description }}</p>
+    
+    <div class="questions-list">
+        {% for question in questions %}
+            <div class="question-item {% if question in answered_questions %}answered{% endif %}">
+                <h3>{{ question.question }}</h3>
+                {% if question in answered_questions %}
+                    <span class="status">✓ Répondu</span>
+                {% else %}
+                    <a href="{% url 'responses:submit_response' enquete_response.id question.id %}" 
+                       class="btn btn-primary">
+                        Répondre
+                    </a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'Admin/base_admin.html' %}
+{% load static %}
+
+{% block title %}Gestion des utilisateurs{% endblock %}
+
+{% block content %}
+<div class="users-management">
+    <div class="section-header">
+        <h1>Gestion des utilisateurs</h1>
+        <div class="actions">
+            <button onclick="window.location.href='{% url 'admin_dashboard:add_user' %}'" class="btn-add">
+                <i class="fas fa-user-plus"></i> 
+                <span>Ajouter un utilisateur</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="users-list">
+        <table>
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Nom</th>
+                    <th>Rôle</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if users %}
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.get_role }}</td>
+                        <td class="actions">
+                            <button onclick="window.location.href='{% url 'admin_dashboard:edit_user' user.id %}'" class="btn-edit">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button onclick="window.location.href='{% url 'admin_dashboard:delete_user' user.id %}'" class="btn-delete">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="4" class="no-data">Aucun utilisateur trouvé</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
