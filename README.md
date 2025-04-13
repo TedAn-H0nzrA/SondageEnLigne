@@ -71,6 +71,7 @@ Le projet est organisé autour de trois applications Django principales :
 4. **Appliquer les migrations** :
 
    ```bash
+   python manage.py makemigrations
    python manage.py migrate
    ```
 
